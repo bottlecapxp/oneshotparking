@@ -1,0 +1,352 @@
+/* Landing page */
+.choose_lot{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#choose_account_holder{
+    width: 80%;
+}
+#new_member_link{
+    text-align: center !important;
+    color: black;
+}
+#new_member_link_dark{
+    text-align: center !important;
+    color: #EA4335;
+}
+/* Guest Page */
+.WelcomeHeadder{
+    font-weight: 300;
+    font-size: 1.4em;
+    color: #585858;
+    margin-top: 25px;
+    margin-bottom: -30px;
+}
+.tc_holder{ 
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+.terms_condition{ 
+    border: none;
+    background: none;
+    margin-top: 20px;
+    border-bottom: 1px solid #585858; 
+    width: 50%;
+}
+.content_holder{
+    width: 70%;
+    margin-top: -16vh;
+}
+.content_holder .form{
+    display: flex;
+    flex-direction: column;
+    margin-top: 30px;
+}
+.labels{
+    color: #585858;
+    margin: 15px 0px 5px 0px;
+}
+.labels:after{ 
+    content: "*";
+    content: red;
+}
+.submitBtn{
+background-color: #F0F0F3;
+  margin-top: 50px;
+  height: 44px;
+  border-radius: 60px;
+  color: red ;
+  box-shadow: 10px 10px 30px rgba(174, 174, 192, 0.4), -10px -10px 30px #FFFFFF;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+}
+.submitBtn_dark{
+      margin-top: 50px;
+      height: 44px;
+      border-radius: 60px;
+      color: red ;
+      background: #1E2834;
+        border: 1px solid #EA4335;
+        box-sizing: border-box;
+        box-shadow: 10px 10px 30px rgba(0, 0, 0, 0.6), -10px -10px 30px rgba(255, 255, 255, 0.12);
+        border-radius: 60px;
+      
+    }
+.licensePlateHolder{
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+.licensePlate{
+    width: 100%;
+    height: 135px;
+    border: 1px solid red;
+    border-radius: 20px;
+    margin-top: 30px;
+}
+.threeSeparations{
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+}
+.lPlateDot{
+    width: 30px;
+    height: 5px;
+    background-color: red;
+    border-radius: 10px;
+    margin-top: 10px;
+}
+.line{
+    width: 100%;
+    height: 1px;
+    background-color: red;
+    margin-top: 10px;
+}
+.plateInput{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.center{
+    display: flex;
+    /* flex-direction: column; */
+    justify-content: center;
+    margin-top:0px;
+}
+.licensePlateInput{
+    width: 50%;
+}
+/* Set Time Page */
+.align_timer_btns{
+    width: 300px;
+    display: flex;
+    justify-content: space-around;
+}
+.btns_img_container{
+    margin-top: 40px;
+}
+.timer_holder{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 40px;
+}
+.stacked_container{
+    display: flex;
+    flex-direction: column;
+   text-align: center;
+}
+.slim{
+    font-weight: 400;
+}
+.stacked{
+    display: flex;
+    flex-direction: column;
+    width: 60vw;
+
+}
+.position-center{
+    display: flex;
+    justify-content: center;
+    width: 100vw !important;
+}
+
+/* CVV Card styles */
+.card_{
+    width: 90%;
+    height: 200px;
+    border: 1px solid black;
+    border-radius: 30px;
+    margin-left: 5%;
+
+}
+.card_dark{
+    width: 90%;
+    height: 200px;
+    border: 1px solid #EA4335;
+    border-radius: 30px;
+    margin-left: 5%;
+
+}
+#CCnumber{
+    max-width: 83%;
+    margin-left: 7%;
+    max-height: fit-content;
+    height: fit-content;
+    border: 1px solid red;
+    padding: 6px;
+    border-radius: 7px;
+}
+#CCnumberLabel{
+    margin-left: 7%;
+    margin-top: 10%;
+}
+.auth_holder{
+    display: flex;
+    margin-top: 20px;
+}
+#expiration{ 
+    width: 80px;
+    margin-left: 0%;
+    max-height: fit-content;
+    height: fit-content;
+    border: 1px solid red;
+    padding: 7px;
+    border-radius: 7px;
+}
+#cvc{
+    width: 60px;
+    margin-left: 0%;
+    max-height: fit-content;
+    height: fit-content;
+    border: 1px solid red;
+    padding: 7px;
+    border-radius: 7px;
+}
+.stacked_{
+    display: flex;
+    flex-direction: column;
+}
+.ccIcon{
+    width: 40px;
+    margin-top: 20px;
+}
+.auth_holder{
+    display: flex;
+    justify-content: space-around;
+}
+.lock{
+    width: 15px;
+    height: 15px;
+}
+.securePayment_{
+display: flex;
+align-items: center;
+}
+.securePaymentHolder{
+   width: 100%;
+   display: flex;
+   justify-content: center;
+   margin-top: 10%;
+}
+.ccCardSubmissionHolder{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+.ccCardSubmission{
+    width: 60%;
+}
+.countdown_digits{
+    width: 70%; 
+    display: flex;
+    justify-content: space-around;
+}
+.countdown_digits_holder{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+
+.countdown_adjustment{
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    display: flex;
+    flex-direction: column;
+    /* background-color: #F0F0F3; */
+    justify-content: center;
+    align-items:center;
+    z-index: 10;
+    background: #F9F9FC;
+    border: 1px solid #848484;
+    box-shadow: 2px 4px 16px rgba(0, 71, 94, 0.2), -4px -4px 16px #FFFFFF;
+    /* animation: secondsCounter 1s infinite; */
+}
+.countdown_adjustment_orange{
+    border: 1px solid #ff7b00 !important;
+}
+.countdown_adjustment_red{
+    border: 1px solid red !important;
+}
+.txtRed{ 
+    color: red !important;
+}
+.txtOrange{ 
+    color: #ff7b00 !important;
+}
+
+.countdown_adjustment_dark{
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    display: flex;
+    flex-direction: column;
+    /* background-color: #F0F0F3; */
+    justify-content: center;
+    align-items:center;
+    z-index: 10;
+    background: #121921;
+    box-shadow: inset 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border: 1px solid #EA4335;
+    color: white;
+    /* animation: secondsCounter 1s infinite; */
+}
+.pulse_holder{
+    margin-top: -40%;
+    display: flex;
+    display: -webkit-flex;
+    width: 100%;
+    position: relative;
+    justify-content: center;
+    align-items: center;
+}
+.circleAnimation{
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    background-color: #e9e9f3;
+    z-index: 1;
+    position: absolute;
+    animation: secondsCounter 1s infinite;
+}
+.circleAnimation_dark{
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    background-color: #11161d;
+    z-index: 1;
+    margin-top: -40%;
+    position: absolute;
+    animation: secondsCounter 1s infinite;
+}
+@keyframes secondsCounter {
+    from{
+        width: 200px;
+        height: 200px;
+        opacity: 1;
+    }
+    to{
+        width: 300px;
+        height: 300px;
+        opacity: 0;
+    }
+}
+.digits{
+    font-size: 1.2em;
+    color: rgba(#292929, 60) !important;
+}
+.lot-info{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    position: absolute;
+    top: 8vh;
+
+    
+}

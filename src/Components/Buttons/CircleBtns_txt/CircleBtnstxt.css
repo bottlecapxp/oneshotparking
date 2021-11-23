@@ -1,0 +1,21 @@
+
+.title{
+font-size: 10px;
+color: #585858;
+font-weight: 700;
+}
+.title{
+font-size: 10px;
+color: #585858;
+font-weight: 700;
+}
+.title_dark{
+    font-size: 10px;
+    font-weight: 700;
+    color: #EA4335;
+}
+.content-align{
+display: flex;
+justify-content: center;
+align-items: center;
+}

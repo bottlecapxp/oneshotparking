@@ -1,0 +1,36 @@
+.plateCapture{
+    width: 70px !important;
+    height: 70px !important;
+    /* background-color: #ff4f4f; */
+    transform: translateY(-12px);
+}
+.confirm_title{
+    font-size: 14px;
+    color: #1E2834;
+    font-weight: 700;
+    text-decoration: none;
+    }
+
+    .securePayment_{
+        display: flex;
+        flex-direction: row;
+    }
+    .btn-confirm{
+        width: 84% !important;
+        border: 1px solid black;
+        border-radius: 10PX;
+        height: 53px !important;
+        margin-top: 10px;
+        box-shadow: 10px 10px 30px rgba(174, 174, 192, 0.4), -10px -10px 30px #FFFFFF;
+    }
+    .btn-confirm-dark{
+        width: 84% !important;
+        border-radius: 10PX;
+        height: 53px !important;
+        margin-top: 10px;
+        background: #1E2834;
+        border: 1.13105px solid #EA4335;
+        box-sizing: border-box;
+        box-shadow: 11.3105px 11.3105px 33.9316px rgba(0, 0, 0, 0.6), -4.52422px -4.52422px 18.0969px rgba(255, 255, 255, 0.12);
+    }
+    

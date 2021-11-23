@@ -1,0 +1,42 @@
+.scrollPicker{
+    border: 1px solid black;
+    border-radius: 10px;
+    width: 95%;
+    margin-left: 2.5%;
+    margin-right: 2.5%;
+}
+.scroll_confirm_holder{ 
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+/* .scrollableDatePicker_container{ 
+    width: 100%;
+    margin: 0;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+}
+#scrollableDatePicker_wrapper{ 
+    width: 80%;
+    height: 100px;
+    border-radius: 10px;
+    border: 1px solid black;
+    display: flex;
+}
+.scroll_data{
+    width: 25%;
+    height: 100%;
+    border: 1px solid blue;
+    overflow-y: scroll;
+    display: flex;
+    justify-content: center;
+}
+ul.ul_list{
+    padding-left: 0px !important;
+}
+.scollableSelection{
+    list-style-type: none;
+    margin-top: 20px;
+} */

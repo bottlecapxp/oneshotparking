@@ -1,0 +1,21 @@
+.Send_receipt_copy{
+    width: 100%;
+    margin-top: 25px;
+    border: 1px solid gray;
+    padding: 10px 0 10px 0;
+    border-radius: 10px;
+    -moz-appearance: none;
+    -webkit-appearance: none;
+    appearance: none;
+    background: none;
+}
+.exit_container{ 
+    width: 100%; 
+    display: flex;
+    justify-content: flex-end;
+}
+.close_receipt_btn{ 
+    -moz-appearance: none;
+    -webkit-appearance: none;
+    appearance: none;
+}
