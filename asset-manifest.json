@@ -1,0 +1,30 @@
+{
+  "files": {
+    "main.css": "/oneshotparking/static/css/main.ba47dcf2.chunk.css",
+    "main.js": "/oneshotparking/static/js/main.99dfbef7.chunk.js",
+    "main.js.map": "/oneshotparking/static/js/main.99dfbef7.chunk.js.map",
+    "runtime-main.js": "/oneshotparking/static/js/runtime-main.8be6758f.js",
+    "runtime-main.js.map": "/oneshotparking/static/js/runtime-main.8be6758f.js.map",
+    "static/js/2.c8bc42b9.chunk.js": "/oneshotparking/static/js/2.c8bc42b9.chunk.js",
+    "static/js/2.c8bc42b9.chunk.js.map": "/oneshotparking/static/js/2.c8bc42b9.chunk.js.map",
+    "static/js/3.68706140.chunk.js": "/oneshotparking/static/js/3.68706140.chunk.js",
+    "static/js/3.68706140.chunk.js.map": "/oneshotparking/static/js/3.68706140.chunk.js.map",
+    "index.html": "/oneshotparking/index.html",
+    "static/css/main.ba47dcf2.chunk.css.map": "/oneshotparking/static/css/main.ba47dcf2.chunk.css.map",
+    "static/js/2.c8bc42b9.chunk.js.LICENSE.txt": "/oneshotparking/static/js/2.c8bc42b9.chunk.js.LICENSE.txt",
+    "static/media/Apple.87c58277.png": "/oneshotparking/static/media/Apple.87c58277.png",
+    "static/media/Apple_logo_white.47258099.png": "/oneshotparking/static/media/Apple_logo_white.47258099.png",
+    "static/media/Google.fde133a6.svg": "/oneshotparking/static/media/Google.fde133a6.svg",
+    "static/media/ccIcon.3d2f6b6e.svg": "/oneshotparking/static/media/ccIcon.3d2f6b6e.svg",
+    "static/media/darkModeLogo.e4dbe049.svg": "/oneshotparking/static/media/darkModeLogo.e4dbe049.svg",
+    "static/media/loading.d57bfd24.gif": "/oneshotparking/static/media/loading.d57bfd24.gif",
+    "static/media/logo.40fca5a8.svg": "/oneshotparking/static/media/logo.40fca5a8.svg",
+    "static/media/tick.a830ac2f.mp3": "/oneshotparking/static/media/tick.a830ac2f.mp3"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.8be6758f.js",
+    "static/js/2.c8bc42b9.chunk.js",
+    "static/css/main.ba47dcf2.chunk.css",
+    "static/js/main.99dfbef7.chunk.js"
+  ]
+}
