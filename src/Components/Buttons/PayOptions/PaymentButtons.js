@@ -6,7 +6,7 @@ import './PaymentButtons.css'
 
 const PaymentButtons = (props) =>{
     const history = useHistory()
-    const [info, setInfo] = useState({
+    const [info] = useState({
         title: props.title, 
         image: props.image
     })

@@ -1,9 +1,7 @@
 import React from 'react'
-import Picker from 'react-scrollable-picker'
-import { useContext, useEffect, useState } from 'react/cjs/react.development'
+import { useContext, useEffect, useState } from 'react'
 import { PaymentContext } from '../Context/PaymentContext'
 import CircleBtnsImg from '../Components/Buttons/CircleBtn_img/CircleBtnsImg'
-import PaymentGenerator from '../Components/Financials/Calculator/PaymentGenerator'
 import ScrollableDatePicker from '../Components/ScrollableDatePicker/ScrollableDatePicker'
 
 
@@ -21,7 +19,7 @@ const LongTimeSelections = (props) => {
     const get_days_of_month = (month, year) => {
         return new Date(year, month, 0).getDate()
     }
-    const find_todays_remaining_hrs = 24 - date.getHours()
+    // const find_todays_remaining_hrs = 24 - date.getHours()
     const days_in_current_month = get_days_of_month(date.getMonth(), date.getFullYear())
     const options = { month: 'long' }
     const current_month = new Intl.DateTimeFormat('en-US', options).format()
@@ -47,7 +45,6 @@ const LongTimeSelections = (props) => {
     const generator = () => {
         var setdays, sethours
         const todaysDate = date.getDate()
-
         const selected_date_array = selectedDate.date.split(' ')
         const selected_date = parseInt(selected_date_array[1])
 
@@ -172,7 +169,6 @@ const LongTimeSelections = (props) => {
             <p style={{ textAlign: 'center' }}>{selectedDate.date} - {`${selectedDate.hours}:${selectedDate.minutes == 0 ? '00' : selectedDate.minutes}${selectedDate.meridian}`}</p>
             <h4 style={{ textAlign: 'center', color: 'red' }}>Total Cost:</h4>
             <p style={{ textAlign: 'center' }}>${totalbilling}</p>
-
             <div className='scroll_confirm_holder'>
                 <CircleBtnsImg title='Confirm' img='' class='plateCapture' />
             </div>

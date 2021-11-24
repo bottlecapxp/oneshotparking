@@ -26,7 +26,7 @@ const ChooseAccount = (props) => {
         }
     }, [])
 
-    const [selected_option, setSelected_option] = useState({
+    const [selected_option] = useState({
         title: props.title,
         url: props.url,
         id: props.id
