@@ -9,7 +9,7 @@ import { useHistory } from 'react-router'
 export const DailyParking = (props) => {
     const history = useHistory()
     const daily_parking_page = () => { 
-        history.push(props.link)
+        history.push('/monthparking/')
     }
   return(
     <button className='global_circle_btns title' onClick={daily_parking_page}> 

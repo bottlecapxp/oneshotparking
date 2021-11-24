@@ -102,7 +102,7 @@ history.push('/daily-parking')
 					<CircleTxtBtns addTime={timeUpdate} title='-1 Hr' time='-0.0417' />
 					<CircleTxtBtns addTime={timeUpdate} title='Max' time={set_max_skip()} />
 					<CircleTxtBtns addTime={timeUpdate} title='+1 Hr' time='0.0417' />
-					<DailyParking link='/daily-parking/'/>
+					<DailyParking link='/monthparking/'/>
 				</div>
 
 				<div className='align_timer_btns btns_img_container'>

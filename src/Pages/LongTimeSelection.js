@@ -9,10 +9,10 @@ import ScrollableDatePicker from '../Components/ScrollableDatePicker/ScrollableD
 
 /**
 * @author
-* @function LongTimeSelection
+* @function LongTimeSelections
 **/
 
-const LongTimeSelection = (props) => {
+const LongTimeSelections = (props) => {
     const { totalbilling, setBilling, } = useContext(PaymentContext)
     var mins = []
     var hrs = []
@@ -180,7 +180,7 @@ const LongTimeSelection = (props) => {
     return (
         <div className='global_container'>
             <h2 style={{ textAlign: 'center', paddingTop: '12%', color: 'red' }}>Set Your Expiration Time</h2>
-            <ScrollableDatePicker expired={setExpiredTime} month={month_days} hours={hrs} minutes={mins} />
+            {/* <ScrollableDatePicker expired={setExpiredTime} month={month_days} hours={hrs} minutes={mins} /> */}
             <h4 style={{ textAlign: 'center', color: 'red' }}>Expires at:</h4>
             <p style={{ textAlign: 'center' }}>{selectedDate.date} - {`${selectedDate.hours}:${selectedDate.minutes == 0 ? '00' : selectedDate.minutes}${selectedDate.meridian}`}</p>
             <h4 style={{ textAlign: 'center', color: 'red' }}>Total Cost:</h4>
@@ -194,7 +194,14 @@ const LongTimeSelection = (props) => {
 
 }
 
-export default LongTimeSelection;
+export default LongTimeSelections;
+
+
+
+
+
+
+
     // for (var i = 0; i < 60; i = i + 30) {
     //     mins.push({ value: i, label: i })
     // }

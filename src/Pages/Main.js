@@ -27,16 +27,16 @@ useEffect(()=>{
     }
 }, [])
 
-// if(localStorage.getItem('lot') === null){
-//     // localStorage.setItem('lot', 4001)
-//     localStorage.setItem('lot', props.match.params.lot)
-// }
-// else if(localStorage.getItem('lot') != null){
-// localStorage.removeItem('lot')
-// setTimeout(()=>{
-//     localStorage.setItem('lot', props.match.params.lot)
-// }, 10)
-// }
+if(localStorage.getItem('lot') === null){
+    // localStorage.setItem('lot', 4001)
+    localStorage.setItem('lot', props.match.params.lot)
+}
+else if(localStorage.getItem('lot') != null){
+localStorage.removeItem('lot')
+setTimeout(()=>{
+    localStorage.setItem('lot', props.match.params.lot)
+}, 10)
+}
 
 
     return(

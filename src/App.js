@@ -10,7 +10,7 @@ import { CountDown } from './Pages/CountDown';
 import {loadStripe} from '@stripe/stripe-js';
 import {Elements} from '@stripe/react-stripe-js';
 import StripePayment from './Stripe/Stripe-CC-Payment'
-import LongTimeSelection from "./Pages/LongTimeSelection";
+import LongTimeSelections from "./Pages/LongTimeSelection"
 
 
 const stripePromise = loadStripe('pk_test_51J3hpXGLCAc2YCrX4xp7zf6QGq4pzhjjIfsjyqYxJmmsJDPZF7Tu7lVC7Uh0IxC4lO14wBpa26vXxfMhmPrRVLJn00XtTPcVSN');
@@ -46,10 +46,10 @@ function App() {
     <PaymentContext.Provider value={providerValue}>
     <Route path='/guest/' exact strict component={GuestDataCapture} />
     <Route path='/:lot' exact strict component={SetTime} />
+    <Route path='/monthparking/' exact strict component={LongTimeSelections} />
     <Route path='/select-payment/' exact strict component={Selectmethod} />
     <Route path='/remaining-time/' exact strict component={CountDown} />
     <Route path='/checkout/' exact strict component={StripePayment} />
-    <Route path='/daily-parking/' exact strict component={LongTimeSelection}/>
     </PaymentContext.Provider>
     </Elements>
   </Switch>
