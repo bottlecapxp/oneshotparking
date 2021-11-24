@@ -125,7 +125,7 @@ const StripePayment = () => {
                 card: 'card_dark'
             })
         }
-    }, [])
+    }, [darkMode])
     return (
         <>
             <div className={`${darkModeStyle.globalContainer} choose_lot`}>
@@ -164,7 +164,7 @@ const StripePayment = () => {
                             <div className='securePaymentHolder'>
                                 <div className='securePayment_'>  {/* display flex */}
                                     {/* image */}
-                                    <img className='lock' src={Lock}></img>
+                                    <img className='lock' src={Lock} alt='lock'></img>
                                     <p style={{ color: darkModeStyle.color }}>Secure Payment</p>
                                     {/* text info */}
                                 </div>

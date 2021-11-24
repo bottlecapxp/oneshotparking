@@ -145,19 +145,6 @@ const LongTimeSelections = (props) => {
         localStorage.setItem('total', totalbilling)
         localStorage.setItem('startTime', startTime)
 
-
-
-        // console.log(setCount)
-        // console.log(expTimeInSecs)
-        // console.log(fullStartHr)
-        // console.log(collective_days * 24)
-        // console.log(settime.hours)
-        // console.log(date.getHours())
-        // console.log(summedTime)
-
-        // console.log(startSum)
-        // console.log(lastSum)
-
         return totalbilling
     }
     constructing_billing()
@@ -205,3 +192,13 @@ export default LongTimeSelections;
     // for (var i = 0; i < 60; i = i + 30) {
     //     mins.push({ value: i, label: i })
     // }
+            // console.log(setCount)
+        // console.log(expTimeInSecs)
+        // console.log(fullStartHr)
+        // console.log(collective_days * 24)
+        // console.log(settime.hours)
+        // console.log(date.getHours())
+        // console.log(summedTime)
+
+        // console.log(startSum)
+        // console.log(lastSum)
