@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
@@ -14,10 +14,11 @@ import Header from './Components/Header/Header';
 // if(darkMode < 1800 || darkMode > 600){
 //   root.style.backgroundColor = 'white'
 // }
+
 ReactDOM.render(
   <React.StrictMode>
-    <Header />
-    <App />
+    <Header/>
+    <App/>
   </React.StrictMode>,
   document.getElementById('root')
 );

@@ -49,7 +49,7 @@ class TimerLogic extends Component {
         // console.log(`hours: ${this.hours}`)
         // console.log(`minutes: ${min_calc}`)
         // console.log(`stepVal: ${stepVal}`)
-        PaymentGenerator(this.hours, this.stagedMinutes)
+        PaymentGenerator(this.hours < 0?0:this.hours, this.stagedMinutes)
 
         //Sound generator      
         const sound = new Howl({
@@ -59,7 +59,7 @@ class TimerLogic extends Component {
         sound.play()
         // console.log(min_calc)
         return (
-            parseInt(`${this.hours}${this.stagedMinutes <= 0 ? '00' : this.stagedMinutes}`)
+            parseInt(`${this.hours < 0?0:this.hours}${this.stagedMinutes <= 0 ? '00' : this.stagedMinutes}`)
         )
 
     }

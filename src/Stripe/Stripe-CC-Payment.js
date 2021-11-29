@@ -1,6 +1,7 @@
 import React, { useState, useContext, useEffect } from 'react'
 import { PaymentContext } from '../Context/PaymentContext'
 import { CardNumberElement, CardCvcElement, CardExpiryElement, useElements, useStripe } from '@stripe/react-stripe-js'
+import { loadStripe } from '@stripe/stripe-js'
 import Lock from '../Assets/lock.png'
 import CreditCardIcon from '../Assets/ccIcon.svg'
 import '../Pages/pages.css'
@@ -11,14 +12,20 @@ import bodyParser from 'body-parser'
 
 const StripePayment = () => {
     // using state to keep track of stripe payment, show errors, and manange user interface
+    const stripe = useStripe()
+    const elements = useElements()
+    const history = useHistory()
+
+
     const [success, setSuccess] = useState(false)
     const [status, setStatus] = useState({
         status: "Enter your card's information below"
     })
     const [processing, setProcessing] = useState('')
     const [disabled, setDisabled] = useState(true)
-    const [clientSecret, setClientSecrete] = useState('')
+    const [clientSecret, setClientSecret] = useState('')
     const { userInfo, totalbilling, darkMode } = useContext(PaymentContext)
+    const [isPaymentLoading, setPaymentLoading] = useState(false)
     const [darkModeStyle, setDarkModeStyle] = useState({
         globalContainer: 'global_container',
         color: '#585858',
@@ -35,9 +42,17 @@ const StripePayment = () => {
         'paid': localStorage.getItem('total')
     }
 
-    const stripe = useStripe()
-    const element = useElements()
-    const history = useHistory()
+    useEffect(() => {
+        if (darkMode >= 1800 || darkMode <= 600) {
+            setDarkModeStyle({
+                globalContainer: 'global_container_dark',
+                color: 'white',
+                submitBtn: 'submitBtn_dark',
+                card: 'card_dark'
+            })
+        }
+
+    }, [darkMode])
 
     const CARD_ELEMENT_OPTIONS = {
         style: {
@@ -47,46 +62,58 @@ const StripePayment = () => {
         }
     }
 
+
+    const calc_stripe_amount = (amount) => { 
+        const split_amount = amount.toString().split('.')
+        const output  = parseInt(`${split_amount[0]}${split_amount[1] < 10?`${split_amount[1]}0`:split_amount[1] }`)
+        return output
+    }
+
     const handleSubmit = async (e) => {
         e.preventDefault()
 
-        const { error, paymentMethod } = await stripe.createPaymentMethod({
-            type: 'card',
-            card: element.getElement(CardNumberElement, CardExpiryElement, CardCvcElement),
-        })
-
-        if (!error) {
-            try {
-                setTimeout(() => {
-                    history.push('/remaining-time/')
-                }, 2000)
-                setSuccess(true)
-                // const { id } = paymentMethod
-
-                fetch('https://osparking.pythonanywhere.com/visitor', {
-                    method: 'POST',
-                    mode: 'cors',
-                    headers: {
-                        'Access-Control-Allow-Origin':'*',
-                        'Content-Type': 'application/json'
-                    },
-                    body: JSON.stringify(api_data)
-                }).then(response => response.json())
-                    .then(data => {
-                        console.log('Success:', data);
-                    })
-                    .catch((error) => {
-                        console.error('Error:', error);
-                    });
-
-
-            } catch (error) {
-                // Change the title information
-                setStatus({
-                    status: error
-                })
-            }
+        if(!stripe || !elements) { 
+            //Stripe JS has not been loaded. Disable form submisison
+            return;
         }
+        // We need to fetch the client secrete from the Server 
+        // in order to confirmCardPayments
+          await fetch("https://osParking.pythonanywhere.com/create-payment-intent", { 
+                method: 'POST', 
+                headers: {"Content-Type": "application/json"}, 
+                body: JSON.stringify({ 
+                    amount: calc_stripe_amount(api_data.paid), 
+                    description: `Purchased by ${api_data.fullname} owner of ${api_data.license_plate}. Can be contacted at 6470001111`,    
+                }),
+            }).then((res) => res.json())
+            .then((data) => { 
+                setClientSecret(data.clientSecret) 
+            })
+  
+
+        console.log(` New Secret: ${clientSecret}`)
+
+        setPaymentLoading(true)
+        const paymentResult = await stripe.confirmCardPayment(clientSecret, { 
+            payment_method: { 
+                card: elements.getElement(CardNumberElement, CardExpiryElement, CardCvcElement),
+                billing_details: {
+                    name: "Decory Herbert"
+                }
+            }
+        })
+        setPaymentLoading(false)
+        if(paymentResult.error){ 
+            alert(paymentResult.error.message)
+            console.log(paymentResult.error.message)
+        }else{ 
+            if(paymentResult.paymentIntent.status === "succeeded")
+            setSuccess(true)
+            setTimeout(()=> { 
+                history.push('/remaining-time/')
+            }, 2000)
+        }
+
 
     } // end of handle submit
 
@@ -95,9 +122,9 @@ const StripePayment = () => {
         'number': localStorage.getItem('phone'),
     }
     
-    const send_message = () => {
+    const send_message = async () => {
         if(success){
-            fetch('https://osparking.pythonanywhere.com/on-payment', {
+            await fetch('https://osparking.pythonanywhere.com/on-payment', {
                 method: 'POST', 
                 mode: 'cors', 
                 headers: {
@@ -115,16 +142,7 @@ const StripePayment = () => {
     }
     send_message()
 
-    useEffect(() => {
-        if (darkMode >= 1800 || darkMode <= 600) {
-            setDarkModeStyle({
-                globalContainer: 'global_container_dark',
-                color: 'white',
-                submitBtn: 'submitBtn_dark',
-                card: 'card_dark'
-            })
-        }
-    }, [darkMode])
+
     return (
         <>
             <div className={`${darkModeStyle.globalContainer} choose_lot`}>
@@ -186,3 +204,48 @@ const StripePayment = () => {
 }
 export default StripePayment;
 
+        // const { error, paymentMethod } = await stripe.createPaymentMethod({
+        //     type: 'card',
+        //     card: element.getElement(CardNumberElement, CardExpiryElement, CardCvcElement),
+        // })
+
+        // if (!error) {
+        //     try {
+        //         setTimeout(() => {
+        //        
+        //         }, 2000)
+        //         setSuccess(true)
+        //         // const { id } = paymentMethod
+
+        //         fetch('https://osparking.pythonanywhere.com/visitor', {
+        //             method: 'POST',
+        //             mode: 'cors',
+        //             headers: {
+        //                 'Access-Control-Allow-Origin':'*',
+        //                 'Content-Type': 'application/json'
+        //             },
+        //             body: JSON.stringify(api_data)
+        //         }).then(response => response.json())
+        //             .then(data => {
+        //                 console.log('Success:', data);
+        //             })
+        //             .catch((error) => {
+        //                 console.error('Error:', error);
+        //             });
+
+
+        //     } catch (error) {
+        //         // Change the title information
+        //         setStatus({
+        //             status: error
+        //         })
+        //     }
+        // }
+
+
+
+
+        // const { error, paymentMethod } = await stripe.createPaymentMethod({
+        //     type: 'card',
+        //     card: elements.getElement(CardNumberElement, CardExpiryElement, CardCvcElement),
+        // })

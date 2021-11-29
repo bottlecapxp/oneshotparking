@@ -26,6 +26,7 @@ const GuestDataCapture = (props) => {
 console.log(license)
  
     useEffect(() => {
+        localStorage.setItem('backbutton', false)
         if (darkMode >= 1800 || darkMode <= 600) {
             setDarkModeStyle({
                 globalContainer: 'global_container_dark',

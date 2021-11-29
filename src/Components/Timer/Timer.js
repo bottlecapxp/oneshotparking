@@ -98,8 +98,8 @@ const Timer = (props) => {
 		if(hours >= 24){ 
 		return;
 		}
-		if(value == 0 && props.addTime == '-0.20'){ 
-				return;
+		if(hours <= 0 && props.addTime == '-0.0417'){ 
+			return;
 		}
 		else{
 				setValue(value + props.addTime);

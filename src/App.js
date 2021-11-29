@@ -3,7 +3,7 @@ import './App.css';
 import GuestDataCapture from './Pages/GuestDataCapture';
 import SetTime from './Pages/SetTime';
 import { PaymentContext } from './Context/PaymentContext';
-import { useState, useMemo} from 'react';
+import { useState, useMemo, useEffect} from 'react';
 import Selectmethod from './Pages/Selectmethod';
 import { CountDown } from './Pages/CountDown';
 import {loadStripe} from '@stripe/stripe-js';
@@ -12,9 +12,11 @@ import StripePayment from './Stripe/Stripe-CC-Payment'
 import LongTimeSelections from "./Pages/LongTimeSelection"
 
 
-const stripePromise = loadStripe('pk_test_51J3hpXGLCAc2YCrX4xp7zf6QGq4pzhjjIfsjyqYxJmmsJDPZF7Tu7lVC7Uh0IxC4lO14wBpa26vXxfMhmPrRVLJn00XtTPcVSN');
+const stripePromise = loadStripe('pk_live_51J3hpXGLCAc2YCrXa5gDpyCtFwkyHHrKYDMlecmFryikVN0XvTYUYBAeSztGufKD4zw84iuve845H0V4uffBjWuo00UytcQdr7');
 
-function App() {
+
+
+function App(props) {
   const [totalbilling, setBilling] = useState()
   const [time, setTime] = useState()
   const [startTime, setStartTime] = useState()

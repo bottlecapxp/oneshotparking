@@ -151,7 +151,7 @@ const LongTimeSelections = (props) => {
 
 
 
-    mins.push({ value: 0, label: 0 })
+    mins.push({ value: '00', label: '00' })
 
     for (var i = 0; i < 13; i++) {
         hrs.push({ value: i, label: i })

@@ -40,6 +40,7 @@ const SetTime = (props) => {
 
 	useEffect(() => {
 		localStorage.setItem('max_count', 0)
+		localStorage.setItem('backbutton', true)
 
 		localStorage.setItem('max', 0)
 		if (localStorage.getItem('lot') === null) {
@@ -90,7 +91,6 @@ history.push('/daily-parking')
 }
 	return (
 		<div className={`${darkModeStyle.globalContainer} choose_lot`}>
-
 			<div id='content_holder'>
 				<div className='timer_holder'>
 					<div className='lot-info'>
@@ -100,7 +100,7 @@ history.push('/daily-parking')
 				</div>
 				<div className='align_timer_btns'>
 					<CircleTxtBtns addTime={timeUpdate} title='-1 Hr' time='-0.0417' />
-					<CircleTxtBtns addTime={timeUpdate} title='Max' time={set_max_skip()} />
+					{/* <CircleTxtBtns addTime={timeUpdate} title='Max' time={set_max_skip()} /> */}
 					<CircleTxtBtns addTime={timeUpdate} title='+1 Hr' time='0.0417' />
 					<DailyParking link='/monthparking/'/>
 				</div>

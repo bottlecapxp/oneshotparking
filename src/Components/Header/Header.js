@@ -4,9 +4,10 @@ import Logo from '../../Assets/logo.svg'
 import DarkModeLogo from '../../Assets/darkModeLogo.svg'
 import '../Header/Header.css'
 import {useHistory} from 'react-router-dom'
+import { defaultProps } from 'react-circular-input/dist/CircularTrack'
 
 
- const Header = () => {
+ const Header = (props) => {
      const history  = useHistory()
     // const {darkMode} = useContext(PaymentContext)
     const darkMode = 1800
@@ -35,7 +36,13 @@ useEffect(()=>{
 }, [])
     return (
         <div id='header'>
-            <button className='back_button' onClick={()=>{back()}}>Back</button>
+            {
+               props.home
+               ?''
+               :
+               <button className='back_button' onClick={()=>{back()}}>Back</button>
+            }
+
             <div className='header_containers'></div>
             <div className='logo'>
                 <img id='logo_img' src={darkModeStyle.logo} alt='logo'></img>
