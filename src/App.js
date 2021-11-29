@@ -12,7 +12,7 @@ import StripePayment from './Stripe/Stripe-CC-Payment'
 import LongTimeSelections from "./Pages/LongTimeSelection"
 
 
-const stripePromise = loadStripe('pk_live_51J3hpXGLCAc2YCrXa5gDpyCtFwkyHHrKYDMlecmFryikVN0XvTYUYBAeSztGufKD4zw84iuve845H0V4uffBjWuo00UytcQdr7');
+const stripePromise = loadStripe(process.env.PUBLISHABLE_KEY);
 
 
 
