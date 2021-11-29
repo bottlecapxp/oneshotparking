@@ -12,7 +12,7 @@ import StripePayment from './Stripe/Stripe-CC-Payment'
 import LongTimeSelections from "./Pages/LongTimeSelection"
 
 
-const stripePromise = loadStripe(process.env.PUBLISHABLE_KEY);
+const stripePromise = loadStripe(`${process.env.PUBLIC_KEY}`);
 
 
 
