@@ -1,17 +1,17 @@
 {
   "files": {
-    "main.css": "/oneshotparking/static/css/main.f8d2845d.chunk.css",
-    "main.js": "/oneshotparking/static/js/main.a396481b.chunk.js",
-    "main.js.map": "/oneshotparking/static/js/main.a396481b.chunk.js.map",
-    "runtime-main.js": "/oneshotparking/static/js/runtime-main.b9fd7ac5.js",
-    "runtime-main.js.map": "/oneshotparking/static/js/runtime-main.b9fd7ac5.js.map",
-    "static/js/2.626103de.chunk.js": "/oneshotparking/static/js/2.626103de.chunk.js",
-    "static/js/2.626103de.chunk.js.map": "/oneshotparking/static/js/2.626103de.chunk.js.map",
-    "static/js/3.ce754345.chunk.js": "/oneshotparking/static/js/3.ce754345.chunk.js",
-    "static/js/3.ce754345.chunk.js.map": "/oneshotparking/static/js/3.ce754345.chunk.js.map",
+    "main.css": "/oneshotparking/static/css/main.da7b8240.chunk.css",
+    "main.js": "/oneshotparking/static/js/main.6119795c.chunk.js",
+    "main.js.map": "/oneshotparking/static/js/main.6119795c.chunk.js.map",
+    "runtime-main.js": "/oneshotparking/static/js/runtime-main.4b7f3f73.js",
+    "runtime-main.js.map": "/oneshotparking/static/js/runtime-main.4b7f3f73.js.map",
+    "static/js/2.91c97a70.chunk.js": "/oneshotparking/static/js/2.91c97a70.chunk.js",
+    "static/js/2.91c97a70.chunk.js.map": "/oneshotparking/static/js/2.91c97a70.chunk.js.map",
+    "static/js/3.33eaaa5a.chunk.js": "/oneshotparking/static/js/3.33eaaa5a.chunk.js",
+    "static/js/3.33eaaa5a.chunk.js.map": "/oneshotparking/static/js/3.33eaaa5a.chunk.js.map",
     "index.html": "/oneshotparking/index.html",
-    "static/css/main.f8d2845d.chunk.css.map": "/oneshotparking/static/css/main.f8d2845d.chunk.css.map",
-    "static/js/2.626103de.chunk.js.LICENSE.txt": "/oneshotparking/static/js/2.626103de.chunk.js.LICENSE.txt",
+    "static/css/main.da7b8240.chunk.css.map": "/oneshotparking/static/css/main.da7b8240.chunk.css.map",
+    "static/js/2.91c97a70.chunk.js.LICENSE.txt": "/oneshotparking/static/js/2.91c97a70.chunk.js.LICENSE.txt",
     "static/media/Apple.87c58277.png": "/oneshotparking/static/media/Apple.87c58277.png",
     "static/media/Apple_logo_white.47258099.png": "/oneshotparking/static/media/Apple_logo_white.47258099.png",
     "static/media/Google.fde133a6.svg": "/oneshotparking/static/media/Google.fde133a6.svg",
@@ -22,9 +22,9 @@
     "static/media/tick.a830ac2f.mp3": "/oneshotparking/static/media/tick.a830ac2f.mp3"
   },
   "entrypoints": [
-    "static/js/runtime-main.b9fd7ac5.js",
-    "static/js/2.626103de.chunk.js",
-    "static/css/main.f8d2845d.chunk.css",
-    "static/js/main.a396481b.chunk.js"
+    "static/js/runtime-main.4b7f3f73.js",
+    "static/js/2.91c97a70.chunk.js",
+    "static/css/main.da7b8240.chunk.css",
+    "static/js/main.6119795c.chunk.js"
   ]
 }
