@@ -1,17 +1,17 @@
 {
   "files": {
     "main.css": "/oneshotparking/static/css/main.2a655ae8.chunk.css",
-    "main.js": "/oneshotparking/static/js/main.1a239d96.chunk.js",
-    "main.js.map": "/oneshotparking/static/js/main.1a239d96.chunk.js.map",
-    "runtime-main.js": "/oneshotparking/static/js/runtime-main.4b7f3f73.js",
-    "runtime-main.js.map": "/oneshotparking/static/js/runtime-main.4b7f3f73.js.map",
-    "static/js/2.91c97a70.chunk.js": "/oneshotparking/static/js/2.91c97a70.chunk.js",
-    "static/js/2.91c97a70.chunk.js.map": "/oneshotparking/static/js/2.91c97a70.chunk.js.map",
-    "static/js/3.33eaaa5a.chunk.js": "/oneshotparking/static/js/3.33eaaa5a.chunk.js",
-    "static/js/3.33eaaa5a.chunk.js.map": "/oneshotparking/static/js/3.33eaaa5a.chunk.js.map",
+    "main.js": "/oneshotparking/static/js/main.b6a913c1.chunk.js",
+    "main.js.map": "/oneshotparking/static/js/main.b6a913c1.chunk.js.map",
+    "runtime-main.js": "/oneshotparking/static/js/runtime-main.9c137406.js",
+    "runtime-main.js.map": "/oneshotparking/static/js/runtime-main.9c137406.js.map",
+    "static/js/2.854c345e.chunk.js": "/oneshotparking/static/js/2.854c345e.chunk.js",
+    "static/js/2.854c345e.chunk.js.map": "/oneshotparking/static/js/2.854c345e.chunk.js.map",
+    "static/js/3.35a1cdbb.chunk.js": "/oneshotparking/static/js/3.35a1cdbb.chunk.js",
+    "static/js/3.35a1cdbb.chunk.js.map": "/oneshotparking/static/js/3.35a1cdbb.chunk.js.map",
     "index.html": "/oneshotparking/index.html",
     "static/css/main.2a655ae8.chunk.css.map": "/oneshotparking/static/css/main.2a655ae8.chunk.css.map",
-    "static/js/2.91c97a70.chunk.js.LICENSE.txt": "/oneshotparking/static/js/2.91c97a70.chunk.js.LICENSE.txt",
+    "static/js/2.854c345e.chunk.js.LICENSE.txt": "/oneshotparking/static/js/2.854c345e.chunk.js.LICENSE.txt",
     "static/media/Apple.87c58277.png": "/oneshotparking/static/media/Apple.87c58277.png",
     "static/media/Apple_logo_white.47258099.png": "/oneshotparking/static/media/Apple_logo_white.47258099.png",
     "static/media/Google.fde133a6.svg": "/oneshotparking/static/media/Google.fde133a6.svg",
@@ -22,9 +22,9 @@
     "static/media/tick.a830ac2f.mp3": "/oneshotparking/static/media/tick.a830ac2f.mp3"
   },
   "entrypoints": [
-    "static/js/runtime-main.4b7f3f73.js",
-    "static/js/2.91c97a70.chunk.js",
+    "static/js/runtime-main.9c137406.js",
+    "static/js/2.854c345e.chunk.js",
     "static/css/main.2a655ae8.chunk.css",
-    "static/js/main.1a239d96.chunk.js"
+    "static/js/main.b6a913c1.chunk.js"
   ]
 }
