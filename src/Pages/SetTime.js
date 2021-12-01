@@ -9,6 +9,7 @@ import MaxCondition from '../Components/max_selection/MaxSelection'
 import { useHistory } from 'react-router'
 import { getQueriesForElement } from '@testing-library/dom';
 import DailyParking from '../Components/Buttons/24+/DailyParking';
+import Header from '../Components/Header/Header';
 
 
 const SetTime = (props) => {
@@ -39,6 +40,7 @@ const SetTime = (props) => {
 	}
 
 	useEffect(() => {
+
 		localStorage.setItem('max_count', 0)
 		localStorage.setItem('backbutton', true)
 
@@ -59,7 +61,6 @@ const SetTime = (props) => {
 				globalContainer: 'global_container_dark',
 			})
 		}
-
 		if (btnClickUpdate == 0) {
 			setBtnClickUpdate(val)
 		}
@@ -90,6 +91,8 @@ const trigger_longTerm_Parking = () => {
 history.push('/daily-parking')
 }
 	return (
+		<>
+		<Header home={true}/>
 		<div className={`${darkModeStyle.globalContainer} choose_lot`}>
 			<div id='content_holder'>
 				<div className='timer_holder'>
@@ -112,6 +115,7 @@ history.push('/daily-parking')
 				</div>
 			</div>
 		</div>
+		</>
 	);
 };
 

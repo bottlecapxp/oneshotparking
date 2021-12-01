@@ -7,11 +7,14 @@ import CreditCardIcon from '../Assets/ccIcon.svg'
 import '../Pages/pages.css'
 import Loading from '../Components/Loading/Loading'
 import { withRouter, useHistory } from 'react-router-dom'
-import bodyParser from 'body-parser'
+import gsap from 'gsap'
+import Header from '../Components/Header/Header'
+import { Notifier } from '../Components/Notifier/Notifier'
 
 
 const StripePayment = () => {
     // using state to keep track of stripe payment, show errors, and manange user interface
+    var button_message = 'Pay Nows'
     const stripe = useStripe()
     const elements = useElements()
     const history = useHistory()
@@ -24,6 +27,7 @@ const StripePayment = () => {
     const [processing, setProcessing] = useState('')
     const [disabled, setDisabled] = useState(true)
     const [clientSecret, setClientSecret] = useState('')
+    const [notifications, setNotifications] = useState(null)
     const { userInfo, totalbilling, darkMode } = useContext(PaymentContext)
     const [isPaymentLoading, setPaymentLoading] = useState(false)
     const [darkModeStyle, setDarkModeStyle] = useState({
@@ -51,6 +55,24 @@ const StripePayment = () => {
                 card: 'card_dark'
             })
         }
+        fetch("https://osParking.pythonanywhere.com/create-payment-intent", { 
+            method: 'POST', 
+            headers: {"Content-Type": "application/json"}, 
+            body: JSON.stringify({ 
+                amount: calc_stripe_amount(api_data.paid), 
+                description: `Purchased by ${api_data.fullname} owner of ${api_data.license_plate}. Can be contacted at 6470001111`,    
+            }),
+        }).then((res) => res.json())
+        .then((data) => {
+            if(data.status === 400){
+                setNotifications(`Error >>> ${data.message}`)
+            }
+            else{
+                setNotifications(null)
+                setClientSecret(data.clientSecret) 
+            }
+        })
+
 
     }, [darkMode])
 
@@ -78,20 +100,10 @@ const StripePayment = () => {
         }
         // We need to fetch the client secrete from the Server 
         // in order to confirmCardPayments
-          await fetch("https://osParking.pythonanywhere.com/create-payment-intent", { 
-                method: 'POST', 
-                headers: {"Content-Type": "application/json"}, 
-                body: JSON.stringify({ 
-                    amount: calc_stripe_amount(api_data.paid), 
-                    description: `Purchased by ${api_data.fullname} owner of ${api_data.license_plate}. Can be contacted at 6470001111`,    
-                }),
-            }).then((res) => res.json())
-            .then((data) => { 
-                setClientSecret(data.clientSecret) 
-            })
-  
 
-        console.log(` New Secret: ${clientSecret}`)
+ 
+
+
 
         setPaymentLoading(true)
         const paymentResult = await stripe.confirmCardPayment(clientSecret, { 
@@ -104,8 +116,7 @@ const StripePayment = () => {
         })
         setPaymentLoading(false)
         if(paymentResult.error){ 
-            alert(paymentResult.error.message)
-            console.log(paymentResult.error.message)
+            setNotifications(paymentResult.error.message)
         }else{ 
             if(paymentResult.paymentIntent.status === "succeeded")
             setSuccess(true)
@@ -115,9 +126,18 @@ const StripePayment = () => {
         }
 
 
+
     } // end of handle submit
 
-
+    if(isPaymentLoading){ 
+        button_message = 'Loading...'
+    }
+    if(success){ 
+        button_message = 'Approved!'
+    }
+    else{ 
+        button_message =  'Pay Nows'
+    }
     const msg_data = {
         'number': localStorage.getItem('phone'),
     }
@@ -142,9 +162,16 @@ const StripePayment = () => {
     }
     send_message()
 
+    const calcTimeout = (val) => { 
+        setTimeout(() => { 
+            setNotifications(val)
+        }, 1600)
+    }
+
 
     return (
         <>
+		<Header home={false}/>
             <div className={`${darkModeStyle.globalContainer} choose_lot`}>
                 {stripe ?
 
@@ -186,10 +213,18 @@ const StripePayment = () => {
                                     {/* text info */}
                                 </div>
                             </div>
-
+                            {
+                                notifications == null? 
+                                ''
+                                :
+                                <Notifier notification={notifications} func={calcTimeout}/> 
+                            
+                            }
+                                
+                                   
                             {/* Button here */}
                             <div className='ccCardSubmissionHolder'>
-                                <input style={success ? { backgroundColor: 'green', color: 'white', fontWeight:'bold' ,border: '1px solid green !important' } : { color: '#FF5759', border: '1px solid #FF5759 !important' }} className={`${darkModeStyle.submitBtn} ccCardSubmission`} type='submit' value={success ? 'Approved!' : 'Pay Now'}></input>
+                                <input style={success ? { backgroundColor: 'green', color: 'white', fontWeight:'bold' ,border: '1px solid green !important' } : { color: '#FF5759', border: '1px solid #FF5759 !important' }} className={`${darkModeStyle.submitBtn} ccCardSubmission`} type='submit' value={isPaymentLoading == true ? 'Processing Payment...': success ? 'Approved!': 'Pay Now'}></input>
                             </div>
 
 

@@ -1,0 +1,11 @@
+.notification_wrapper{
+    width: auto;
+    background-color: red;
+    border: 1px solid black;
+    border-radius: 16px;
+    color: white;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    
+}

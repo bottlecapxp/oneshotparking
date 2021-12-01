@@ -2,6 +2,8 @@ import React, { useState, useContext, useEffect } from 'react'
 import { PaymentContext } from '../Context/PaymentContext'
 import Receipt from '../Components/Receipt/Receipt'
 import {useHistory} from 'react-router-dom'
+import Header from '../Components/Header/Header'
+import { Notifier } from '../Components/Notifier/Notifier'
 
 
 
@@ -17,7 +19,7 @@ export const CountDown = () => {
         circleAnimation: 'circleAnimation',
         countDownAdj: 'countdown_adjustment'
     })
-
+    const [notifications, setNotifications] = useState(null)
         var orange;
         var orangeTxt;
         var verbageChange = 'Active Session'
@@ -124,6 +126,23 @@ const [activeSession, setActiveSession] = useState({
      
         count = setLocalStorage('count', getExpTimeInSecs - sum);
         if (count <= 0) {
+            fetch("https://osParking.pythonanywhere.com/expired-message", { 
+                method: 'POST', 
+                headers: {"Content-Type": "application/json"}, 
+                body: JSON.stringify({ 
+                    phone: localStorage.getItem('phone')
+                }),
+            }).then((res) => res.json())
+            .then((data) => {
+                if(data.status === 400){
+                    setNotifications(`Error >>> ${data.message}`)
+                }
+                else{
+                    setNotifications(null)
+                }
+            })
+            // Send Text message
+
             localStorage.setItem('count', 0)
             localStorage.setItem('expTimeInSecs', 0)
 
@@ -175,6 +194,8 @@ if(countDown.hours == 0 && countDown.mins <= 10){
     orange = 'countdown_adjustment_red'
     orangeTxt = 'txtRed'
     verbageChange = 'Expiring Soon'
+
+    // Send a test Message
   }
   if(countDown.mins == 0 && countDown.hours == 0){ 
     orange = 'countdown_adjustment_red'
@@ -229,46 +250,47 @@ make_change_base_on_time()
                 }
             })
         }
-        
-
-
-
         initCounter()
     }, [])
 
     return (
-        <div style={{overflowY: 'hidden'}} className={`${darkModeStyle.globalContainer} choose_lot ${orange}`}>
-            <div style={containerStyling.divStyle}>
-                <div className='pulse_holder'>
-                <div className={darkModeStyle.circleAnimation}></div>
-                <div className='countdown_digits_holder'>
-                    <div className={`${darkModeStyle.countDownAdj} ${orange}`}>
-                        <h3 className={orangeTxt} style={{ marginBottom: '0px' }}>{verbageChange}</h3>
-                        <div className='countdown_digits'>
-                        {countDown.days > 0?(<span className={`digits ${orangeTxt}`}>{`${countDown.days}d`}</span>): ''}
-                            <span className={`digits ${orangeTxt}`}>{`${countDown.hours}h`}</span>
-                            <span className={`digits ${orangeTxt}`}>{`${countDown.mins}m`}</span>
-                            <span className={`digits ${orangeTxt}`} >{countDown.secs == 60?'00':`${countDown.secs}`}s</span>
+        <>
+            <Header home={true}/>
+            <div style={{overflowY: 'hidden'}} className={`${darkModeStyle.globalContainer} choose_lot ${orange}`}>
+                <div style={containerStyling.divStyle}>
+                    <div className='pulse_holder'>
+                    <div className={darkModeStyle.circleAnimation}></div>
+                    <div className='countdown_digits_holder'>
+                        <div className={`${darkModeStyle.countDownAdj} ${orange}`}>
+                            <h3 className={orangeTxt} style={{ marginBottom: '0px' }}>{verbageChange}</h3>
+                            <div className='countdown_digits'>
+                            {countDown.days > 0?(<span className={`digits ${orangeTxt}`}>{`${countDown.days}d`}</span>): ''}
+                                <span className={`digits ${orangeTxt}`}>{`${countDown.hours}h`}</span>
+                                <span className={`digits ${orangeTxt}`}>{`${countDown.mins}m`}</span>
+                                <span className={`digits ${orangeTxt}`} >{countDown.secs == 60?'00':`${countDown.secs}`}s</span>
+                            </div>
                         </div>
+
                     </div>
-
+                    </div>
+                    {showReceipt ? <Receipt close={toggle}/> : ''}
+                    {notifications != null? <Notifier notification={notifications}/>: ''}
+                    <h4 className={orangeTxt} style={{ marginTop: '30%', color: darkModeStyle.color }}>Your Time Expires at: {expiredTime}</h4>
+                    <div style={containerStyling.buttonDiv}>
+                        <span className={`${orange} ${orangeTxt}`} style={containerStyling.buttonStyle} onClick={()=>{history.push('/1111')}}>Extend My Time</span>
+                        <span className={`${orange} ${orangeTxt}`} onClick={toggle} style={containerStyling.buttonStyle}>View My Receipt</span>
+                    </div>
                 </div>
-                </div>
-                {showReceipt ? <Receipt close={toggle}/> : ''}
-
-                <h4 className={orangeTxt} style={{ marginTop: '30%', color: darkModeStyle.color }}>Your Time Expires at: {expiredTime}</h4>
-                <div style={containerStyling.buttonDiv}>
-                    <span className={`${orange} ${orangeTxt}`} style={containerStyling.buttonStyle} onClick={()=>{history.push('/1111')}}>Extend My Time</span>
-                    <span className={`${orange} ${orangeTxt}`} onClick={toggle} style={containerStyling.buttonStyle}>View My Receipt</span>
-                </div>
-
             </div>
-
-            {/* Count down time */}
-            {/* Buttone to Extend time here */}
-        </div>
+        </>
     )
 }
+
+
+
+
+
+
 
 
 

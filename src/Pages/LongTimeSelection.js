@@ -3,7 +3,7 @@ import { useContext, useEffect, useState } from 'react'
 import { PaymentContext } from '../Context/PaymentContext'
 import CircleBtnsImg from '../Components/Buttons/CircleBtn_img/CircleBtnsImg'
 import ScrollableDatePicker from '../Components/ScrollableDatePicker/ScrollableDatePicker'
-
+import Header from '../Components/Header/Header'
 
 /**
 * @author
@@ -162,8 +162,10 @@ const LongTimeSelections = (props) => {
 
 
     return (
+        <>
+		<Header home={true}/>
         <div className='global_container'>
-            <h2 style={{ textAlign: 'center', paddingTop: '12%', color: 'red' }}>Set Your Expiration Time</h2>
+            <h2 style={{ textAlign: 'center', paddingTop: '5%', color: 'red' }}>Set test Your Expiration Time</h2>
             <ScrollableDatePicker expired={setExpiredTime} month={month_days} hours={hrs} minutes={mins} />
             <h4 style={{ textAlign: 'center', color: 'red' }}>Expires at:</h4>
             <p style={{ textAlign: 'center' }}>{selectedDate.date} - {`${selectedDate.hours}:${selectedDate.minutes == 0 ? '00' : selectedDate.minutes}${selectedDate.meridian}`}</p>
@@ -173,6 +175,7 @@ const LongTimeSelections = (props) => {
                 <CircleBtnsImg title='Confirm' img='' class='plateCapture' />
             </div>
         </div>
+        </>
     )
 
 }

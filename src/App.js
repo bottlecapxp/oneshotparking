@@ -10,11 +10,11 @@ import {loadStripe} from '@stripe/stripe-js';
 import {Elements} from '@stripe/react-stripe-js';
 import StripePayment from './Stripe/Stripe-CC-Payment'
 import LongTimeSelections from "./Pages/LongTimeSelection"
+import PrivacyPolicy from "./Pages/PrivacyPolicy";
+import dotenv from 'dotenv'
 
 
-const stripePromise = loadStripe(`${process.env.PUBLIC_KEY}`);
-
-
+const stripePromise = loadStripe(process.env.REACT_APP_PUBLIC_KEY);
 
 function App(props) {
   const [totalbilling, setBilling] = useState()
@@ -51,6 +51,7 @@ function App(props) {
     <Route path='/select-payment/' exact strict component={Selectmethod} />
     <Route path='/remaining-time/' exact strict component={CountDown} />
     <Route path='/checkout/' exact strict component={StripePayment} />
+    <Route path='/terms/' exact strict component={PrivacyPolicy} />
     </PaymentContext.Provider>
     </Elements>
   </Switch>

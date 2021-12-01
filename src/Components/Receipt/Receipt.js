@@ -18,6 +18,7 @@ const expired_time = localStorage.getItem('expTime')
 const total = localStorage.getItem('total')
 const data = `${date.getFullYear()}/${date.getMonth()}/${date.getUTCDate()}`
 const number = localStorage.getItem('phone')
+const [status, setStatus] = useState(false)
 const [receipStyling, setReceiptStyling] =useState({
 wrapperStyling: { 
     width: '60%', 
@@ -59,7 +60,7 @@ const send_receipt = () =>{
     })
     .then((promise)=> promise.json())
     .then((data) => { 
-        console.log(data)
+        setStatus(true)
     })
 }
 
@@ -104,7 +105,7 @@ const send_receipt = () =>{
             <h4 style={{marginBottom: '0px'}}>Date:</h4>
             <p style={{marginLeft: '20px', marginBottom: '0px'}}>{data}</p>
         </div>
-        <button onClick={send_receipt} className='Send_receipt_copy'>Get a Copy</button>
+        <button onClick={send_receipt} style={ status?{backgroundColor: 'green', color: 'white'}: {}} className='Send_receipt_copy'>{status?'Sent!':'Get a Copy'}</button>
         
     </div>
    )

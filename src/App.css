@@ -1,4 +1,6 @@
-
+body{ 
+  position: fixed !important;
+}
 .global_container{
   width: 100vw;
   height: 90vh;
@@ -48,4 +50,16 @@ padding-left: 10px;
 label{
   margin-bottom: 2px;
   color: #FF5759;
+}
+.conditions{ 
+  display: flex;
+  flex-direction: column;
+  margin-top: 1vh;
+  overflow-y: scroll;
+  width: 80%;
+  height: 80%;
+}
+.TermsCondition{
+  position: absolute;
+  margin-top: -6vh;
 }

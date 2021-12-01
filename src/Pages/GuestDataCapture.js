@@ -1,6 +1,7 @@
 import React, { useContext, useEffect, useState } from 'react'
 import { PaymentContext } from '../Context/PaymentContext'
 import { withRouter, useHistory } from 'react-router-dom'
+import Header from '../Components/Header/Header'
 
 
 const GuestDataCapture = (props) => {
@@ -51,8 +52,13 @@ console.log(license)
     }
     const lotNumber = localStorage.getItem('lot')
 
+    const terms_onclick = () => { 
+        history.push('/terms/')
+    }
 
     return (
+        <>
+		<Header home={false}/>
         <div className={`${darkModeStyle.globalContainer} choose_lot`}>
             <div className='content_holder'>
                 <h1 className='WelcomeHeadder' style={{ textAlign: 'center', color: darkModeStyle.color }}>Welcome to Lot Location<br /> <strong>{lotNumber}</strong></h1>
@@ -101,7 +107,7 @@ console.log(license)
                     {/* <input></input> */}
                     <input className={darkModeStyle.buttonStyle} type='submit'></input>
                     <div className='tc_holder'>
-                    <button className='terms_condition'>Terms & Conditions</button>
+                    <button onClick={terms_onclick} className='terms_condition'>Terms & Conditions</button>
                     </div>
 
                 </form>
@@ -110,6 +116,7 @@ console.log(license)
             </div>
 
         </div>
+        </>
     )
 }
 export default withRouter(GuestDataCapture);
