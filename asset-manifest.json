@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/oneshotparking/static/css/main.2a655ae8.chunk.css",
-    "main.js": "/oneshotparking/static/js/main.823f55fc.chunk.js",
-    "main.js.map": "/oneshotparking/static/js/main.823f55fc.chunk.js.map",
+    "main.js": "/oneshotparking/static/js/main.1a239d96.chunk.js",
+    "main.js.map": "/oneshotparking/static/js/main.1a239d96.chunk.js.map",
     "runtime-main.js": "/oneshotparking/static/js/runtime-main.4b7f3f73.js",
     "runtime-main.js.map": "/oneshotparking/static/js/runtime-main.4b7f3f73.js.map",
     "static/js/2.91c97a70.chunk.js": "/oneshotparking/static/js/2.91c97a70.chunk.js",
@@ -25,6 +25,6 @@
     "static/js/runtime-main.4b7f3f73.js",
     "static/js/2.91c97a70.chunk.js",
     "static/css/main.2a655ae8.chunk.css",
-    "static/js/main.823f55fc.chunk.js"
+    "static/js/main.1a239d96.chunk.js"
   ]
 }
